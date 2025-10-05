@@ -1,0 +1,7 @@
+{
+  "name": "calender-chrome-extension",
+  "version": "1.0.0",
+  "dependencies": {
+"chrome-types": "0.1.335"
+  }
+}
