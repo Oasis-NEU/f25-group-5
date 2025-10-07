@@ -1,6 +1,6 @@
 {
-  "name": "Unamed AI calender assistant",
-  "description": "helps with various tasks in google calender",
+  "name": "Unnamed AI Calendar Assistant",
+  "description": "Helps with various tasks in Google Calendar",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
@@ -15,11 +15,30 @@
   },
   "content_scripts": [
     {
-      "js": ["scripts/content.js"],
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "scripts/start.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "scripts/moduleLoaderTest.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    },
+    {
+      "resources": [
+        "scripts/helloWorld.js"
+      ],
       "matches": [
         "<all_urls>"
       ]
     }
   ]
-
 }
