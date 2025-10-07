@@ -33,7 +33,8 @@ Below are raw notes and feature ideas collected for the project. Keep these as a
 🧑‍💼 DELEGATE TASKS
 
 - gmail context + gmail event parser
-  - provide context to the chat bot by parsing gmail via google's gmail api ( we could also use outlook api) to find intresting events to sugest the user to attend. 
+  - provide context to the chat bot by parsing gmail via google's gmail api ( we could also use outlook api) to find intresting events to sugest the user to attend.
+  - start with detecting gmail first, then try detecting internet/links/scripts via gemini api?
 - canvas context
   - provide context to the chat bot by giving assigment due dates via the instructure canvas API
 - google calender context 
