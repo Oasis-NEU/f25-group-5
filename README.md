@@ -32,7 +32,22 @@ Below are raw notes and feature ideas collected for the project. Keep these as a
 
 🧑‍💼 DELEGATE TASKS
 
-Tools: 🪄 Gemini, 🖼️ Canvas API, 🎙️ voice chat
+- gmail context + gmail event parser
+  - provide context to the chat bot by parsing gmail via google's gmail api ( we could also use outlook api) to find intresting events to sugest the user to attend.
+  - start with detecting gmail first, then try detecting internet/links/scripts via gemini api?
+- canvas context
+  - provide context to the chat bot by giving assigment due dates via the instructure canvas API
+- google calender context 
+  - provide context to the chat bot by ethier looking at html of the current page ( we can do this because the chat bot only gets used in the google calender website) or use google's calender API to see the users existing events and provide this information to the chat bot
+- chat bot 
+  - use google gemini (because free). user can freely chat with the bot and ask it questions. the bot takes in all the context we gathered from calender, gmail and canvas to give the user more relevent respoces. 
+
+  - also the bot not only should be able to respond via chat but also respond via giveing calender sugestions 
+- crome extention UI
+  - add the pretty UI pannel to google calender website ( via crome extention content injection) where the user can interact with the chat bot.
+- data base 
+  - to store chat history so the bots memory is not wiped every time you reload the site
+- 
 
 
 ---
