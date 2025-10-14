@@ -20,8 +20,7 @@ D O   N O T   M O D I F Y   T H I S   F I L E
 */
 
 const script_paths = [
-    "scripts/moduleLoaderTest.js",
-    "scripts/helloWorld.js"
+    "scripts/sidePanelToggle.js"
 ];
 
 console.log("Starting Extension Services");
