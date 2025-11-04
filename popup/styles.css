@@ -1,0 +1,49 @@
+:root {
+  --bg: #f5f5f7;
+  --fg: #1d1d1f;
+  --border: #d2d2d7;
+  --accent: #007aff;
+  --radius: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  width: 360px;
+}
+
+.header {
+  background: white;
+  border-radius: 14px;
+  margin: 8px;
+  padding: 12px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.3px;
+}
+
+.settings-btn {
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--accent);
+  transition: transform 0.1s ease;
+}
+
+.settings-btn:hover {
+  transform: rotate(20deg);
+}
+
+.content {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+}
