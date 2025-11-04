@@ -1,0 +1,1 @@
+importScripts("authPopup.js", "sidePanelToggle.js");

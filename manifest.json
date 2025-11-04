@@ -5,7 +5,9 @@
   "manifest_version": 3,
   "permissions": [
     "sidePanel",
-    "tabs"
+    "tabs",
+    "storage",
+    "identity"
   ],
   "action": {
     "default_icon": "images/icon.png"
@@ -17,7 +19,7 @@
     "128": "images/icon-128.png"
   },
   "background": {
-    "service_worker": "scripts/sidePanelToggle.js"
+    "service_worker": "scripts/serviceWorkerLoader.js"
   },
   "side_panel": {
     "default_path": "popup/popup.html"
