@@ -1,25 +1,37 @@
-<html>
-<head>
-    <style>
-        body {
-            width: 100px;
-            height: 20px;
-            background-color: #b74242;
-            font-family: Brush Script MT, cursive;
-            font-size: 16px;
-            color: #333;
-            padding: 0px;
-        }
-        h1 {
-            color: #3b2222;
-            font-size: 24px;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-<body>
-<h1>Hello World</h1>
-<script src="popup.js"></script>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAIZI Chatbot</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">LAIZI</div>
+      <a href="https://your-settings-link.com" target="_blank" class="settings-btn">⚙️</a>
+    </header>
+
+    <main class="chat-container">
+      <div id="chatBox" class="chat-box">
+        <div class="message bot">👋 Hi! I’m Laizi, your assistant.</div>
+      </div>
+
+      <div class="input-area">
+        <input type="text" id="userInput" placeholder="Type a message..." />
+        <button id="sendBtn">➤</button>
+      </div>
+      <div class="gmail-scan-area">
+        <button id="scanGmailBtn" class="wide-btn">📧 Scan Gmail</button>
+      </div>
+      
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
 </html>
+
+
+
+<!--should run automatically when you open gmail*/
+new events found in your gmail new popup -->
