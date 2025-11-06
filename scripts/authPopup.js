@@ -80,6 +80,8 @@ const queueAuthFlow = async () => {
                 console.error("Could not verify token. Error.");
                 console.error(reason);
             });
+    } else {
+        completeAuthFlow();
     }
 }
 
