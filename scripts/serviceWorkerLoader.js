@@ -1,1 +1,1 @@
-importScripts("authPopup.js", "sidePanelToggle.js");
+importScripts("authPopup.js", "sidePanelToggle.js", "scanGmail.js");
