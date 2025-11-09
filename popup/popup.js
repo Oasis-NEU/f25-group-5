@@ -7,19 +7,61 @@ const resetButton = () => {
     scanGmailBtn.disabled = false;
 }
 
+const addNewEvents = (newEvents) => {
+    chrome.runtime.sendMessage({ action: "laizi-addEvent", data: { events: newEvents } }, (response) => {
+        console.log(response.action)
+        switch(response.action) {
+            case "success":
+            case "empty-set":
+                scanGmailBtn.textContent = "✅ Submitted";
+                break;
+
+            case "missing-auth":
+                scanGmailBtn.textContent = "⚠️ Missing Auth";
+                console.error("No token found in chrome.storage.local");
+                break;
+
+            case "general-error":
+                scanGmailBtn.textContent = "❌ Server Error";
+                console.error("Server returned an error:", response.error);
+                break;
+
+            case "request-error":
+                scanGmailBtn.textContent = "❌ Request Failed";
+                console.error("Network or fetch error:", response.error);
+                break;
+
+            default:
+                scanGmailBtn.textContent = "❌ Unknown Error";
+                console.error("Unexpected response:", response);
+                break;
+        }
+
+        setTimeout(resetButton, 2000);
+    })
+}
+
 const handleNewEvents = (newEvents) => {
     // TODO: Handle new events
     newEvents.forEach(e => {
         alert(e.name);
     });
+
+    // simulate adding new events
+    addNewEvents(newEvents);
 }
 
 const filterEvents = (data) => {
     chrome.runtime.sendMessage({ action: "laizi-filterEvents", data: data }, (response) => {
         // Handle errors/success
+        let successCase = false;
+
         switch(response.action) {
             case "success":
                 if (response.result.length != 0 ) {
+                    successCase = true;
+                    scanGmailBtn.textContent = "🔍 Select Events";
+
                     handleNewEvents(response.result);
                     break;
                 }
@@ -49,7 +91,9 @@ const filterEvents = (data) => {
                 break;
         }
 
-        setTimeout(resetButton, 2000);
+        if (!successCase) {
+            setTimeout(resetButton, 2000);
+        }
     });
 }
 
