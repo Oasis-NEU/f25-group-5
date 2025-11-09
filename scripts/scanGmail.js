@@ -1,6 +1,57 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (!message || !message.action) return;
 
+    if (message.action === "laizi-chatbot") {
+        console.log("Sending chatbot message...");
+        (async () => {
+            if (!message.data) return;
+
+            // also, rid events that the user has already signed up for, check for conflicts
+            const { laiziAuthToken } = await chrome.storage.local.get(
+                "laiziAuthToken"
+            );
+
+            if (!laiziAuthToken) {
+                sendResponse({ action: "missing-auth" });
+                return;
+            }
+
+            const requestOptions = {
+                method: "POST",
+                body: JSON.stringify({ message: message.data }),
+                headers: {
+                    Authorization: `Bearer ${laiziAuthToken}`,
+                    "Content-Type": "application/json",
+                },
+                redirect: "follow",
+            };
+
+            try {
+                const response = await fetch(
+                    "https://liazi-backend.vercel.app/api/v1/chatbot/chat",
+                    requestOptions
+                );
+
+                const result = await response.json();
+
+                if (response.status != 200) {
+                    sendResponse({
+                        action: "general-error",
+                        error: result.message || "Unknown",
+                    });
+                    return;
+                }
+
+                sendResponse({ action: "success", message: result.message });
+            } catch (error) {
+                console.error("Availability error:", error);
+                sendResponse({ action: "request-error", error: error.message });
+            }
+        })();
+
+        return true;
+    }
+
     if (message.action === "laizi-scanGmail") {
         console.log("Scanning Gmail...");
         (async () => {
