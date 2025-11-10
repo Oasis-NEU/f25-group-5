@@ -1,3 +1,68 @@
+// Global array to track whether each widget was accepted (true) or declined (false)
+let usersEventDecisions = [];
+
+function addEventWidget({header = "title of event", lines = ["Desc", "time", "place"], index = 0} = {}) {
+	const list = document.getElementById("scanStatusList");
+	if (!list) return;
+
+	const box = document.createElement("div");
+	box.className = "status-box";
+    box.id = "box" + index
+
+	// Header
+	const h = document.createElement("div");
+	h.className = "status-header";
+	h.textContent = header;
+	box.appendChild(h);
+
+	// Lines
+	const statusList = document.createElement("div");
+	statusList.className = "status-list";
+	for (let i = 0; i < 3; ++i) {
+		const line = document.createElement("div");
+		line.className = "status-text";
+		line.textContent = lines[i] || "";
+		statusList.appendChild(line);
+	}
+	box.appendChild(statusList);
+
+	// Actions
+	const actions = document.createElement("div");
+	actions.className = "status-actions";
+	const acceptBtn = document.createElement("button");
+	acceptBtn.className = "action-btn accept";
+	acceptBtn.textContent = "✓ Accept";
+	acceptBtn.title = "Accept";
+	acceptBtn.setAttribute("aria-label", "Accept");
+	// Add click handler for accept button
+	acceptBtn.addEventListener("click", () => {
+		usersEventDecisions[index] = true; // true = accepted
+		box.remove(); // Remove the widget
+		console.log("User decisions:", usersEventDecisions);
+	});
+	actions.appendChild(acceptBtn);
+
+	const declineBtn = document.createElement("button");
+	declineBtn.className = "action-btn decline";
+	declineBtn.textContent = "✕ Decline";
+	declineBtn.title = "Decline";
+	declineBtn.setAttribute("aria-label", "Decline");
+	// Add click handler for decline button
+	declineBtn.addEventListener("click", () => {
+		usersEventDecisions[index] = false; // false = declined
+		box.remove(); // Remove the widget
+		console.log("User decisions:", usersEventDecisions);
+	});
+	actions.appendChild(declineBtn);
+
+	box.appendChild(actions);
+	list.appendChild(box);
+}
+
+
+
+
+
 console.log("Popup loaded");
 
 const scanGmailBtn = document.getElementById("scanGmailBtn");
@@ -200,5 +265,14 @@ if (scanGmailBtn) {
 
 sendMessageBtn.addEventListener("click", chatbotMessage);
 messageBox.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") chatbotMessage();
+    if (e.key === "Enter") 
+        {
+            chatbotMessage();
+            // test to see if addEvent widget works
+            //addEventWidget({header: "Steast bereckfast ",list:["food food and yet more I want some food ", "some time", "steast"], index: 0 })
+            //addEventWidget({header: "Steast lunch ",list:["food food and yet more I want some food ", "some time", "steast"], index: 1 })
+            //addEventWidget({header: "Steast dinner ",list:["food food and yet more I want some food ", "some time", "steast"], index: 2 })
+        }
+    
+
 });

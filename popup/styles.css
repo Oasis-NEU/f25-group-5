@@ -158,3 +158,83 @@ body {
 
 
 /*button and popup*/
+
+/* ===== Scan Status Box ===== */
+.status-box {
+  margin: 16px 16px 0 16px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+}
+
+#scanStatusList {
+  margin-bottom: 18px;
+}
+
+
+.status-header {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--fg);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.status-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-text {
+  background: transparent; /* remove bubble background */
+  border-radius: 0;
+  padding: 0; /* remove bubble padding */
+  font-size: 13px;
+  color: var(--fg);
+  border: none;
+  text-align: left;
+}
+
+/* small responsive tweak */
+@media (max-width: 380px) {
+  .status-text { font-size: 13px; }
+}
+
+/* Action buttons (Accept / Decline) inside the status box */
+.status-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.action-btn {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+}
+
+.action-btn.accept {
+  background: #28a745; /* green */
+}
+
+.action-btn.decline {
+  background: #dc3545; /* red */
+}
+
+.action-btn:hover { transform: translateY(-1px); }
+
+@media (max-width: 380px) {
+  .action-btn { flex: 1; justify-content: center; }
+}
