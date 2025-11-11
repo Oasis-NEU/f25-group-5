@@ -2,7 +2,8 @@
   --bg: #f5f5f7;
   --fg: #1d1d1f;
   --border: #d2d2d7;
-  --accent: #007aff;
+  /* slightly lighter teal for a brighter accent */
+  --accent: #20bca3;
   --radius: 16px;
 }
 
@@ -22,7 +23,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .logo {
@@ -119,8 +120,9 @@ body {
 }
 
 .input-area button:hover {
-  background: #005ecb;
+  background: #169f8a;
 }
+
 /* ===== Wide Gmail Scan Button ===== */
 .gmail-scan-area {
   padding: 14px 16px 18px;
@@ -133,7 +135,7 @@ body {
 .wide-btn {
   width: 100%;
   padding: 12px;
-  background: #005ecb;
+  background: var(--accent);
   border: none;
   border-radius: 12px;
   color: white;
@@ -145,7 +147,7 @@ body {
 }
 
 .wide-btn:hover {
-  background: #00499c;
+  background: #169f8a;
   transform: scale(1.02);
 }
 
@@ -166,7 +168,7 @@ body {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
 }
 
 #scanStatusList {
@@ -189,9 +191,11 @@ body {
 }
 
 .status-text {
-  background: transparent; /* remove bubble background */
+  background: transparent;
+  /* remove bubble background */
   border-radius: 0;
-  padding: 0; /* remove bubble padding */
+  padding: 0;
+  /* remove bubble padding */
   font-size: 13px;
   color: var(--fg);
   border: none;
@@ -200,7 +204,9 @@ body {
 
 /* small responsive tweak */
 @media (max-width: 380px) {
-  .status-text { font-size: 13px; }
+  .status-text {
+    font-size: 13px;
+  }
 }
 
 /* Action buttons (Accept / Decline) inside the status box */
@@ -222,19 +228,26 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 
 .action-btn.accept {
-  background: #28a745; /* green */
+  background: #28a745;
+  /* green */
 }
 
 .action-btn.decline {
-  background: #dc3545; /* red */
+  background: #dc3545;
+  /* red */
 }
 
-.action-btn:hover { transform: translateY(-1px); }
+.action-btn:hover {
+  transform: translateY(-1px);
+}
 
 @media (max-width: 380px) {
-  .action-btn { flex: 1; justify-content: center; }
+  .action-btn {
+    flex: 1;
+    justify-content: center;
+  }
 }
