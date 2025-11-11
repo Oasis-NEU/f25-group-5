@@ -152,6 +152,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     return;
                 }
 
+                console.log(result);
                 sendResponse({ action: "success", result: result.result });
             } catch (error) {
                 console.error("Availability error:", error);
