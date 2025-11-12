@@ -53,7 +53,7 @@ A Chrome extension that provides an AI-powered assistant for Google Calendar and
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Oasis-NEU/f25-group-5.git
    cd f25-group-5
    ```
 
