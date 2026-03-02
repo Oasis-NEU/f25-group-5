@@ -1,6 +1,6 @@
 {
-  "name": "Unnamed AI Calendar Assistant",
-  "description": "Helps with various tasks in Google Calendar",
+  "name": "LAIzi",
+  "description": "Wasting time planning out your week? Too lazy to do it yourself? LAIzi is your newest AI scheduling companion to help you get more time out of your days!",
   "version": "1.0",
   "manifest_version": 3,
   "permissions": [
